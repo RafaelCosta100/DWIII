@@ -27,7 +27,7 @@
  app.get('/', (req, res) => {
   const ra = req.query.ra
   if (ra){
-    const aluno = alunos.findIndex(a => a.ra == ra)
+    const aluno = alunos.find(a => a.ra == ra)
     if (!aluno){
       return res.status(404).json({erro:"Aluno não encontrado"})
     }
