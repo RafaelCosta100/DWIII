@@ -12,14 +12,17 @@
  let alunos = [
  {
  ra: 1, nome: "Diego", turma: "DSM",
- cursos: ["Javascript", "ReactJS", "Redux"]
+ cursos: ["Javascript", "ReactJS", "Redux"],
+ 
  },
  {
  ra: 2, nome: "Leandro", turma: "DSM",
- cursos: ["VueJS", "Ruby on Rails", "Node"]
- }
- ];
+ cursos: ["VueJS", "Ruby on Rails", "Node"],
 
+ },
+];
+
+// teste de git
  //get para mostrar todos os cadastros de alunos
  app.get('/', (req, res) => {
   const ra = req.query.ra
