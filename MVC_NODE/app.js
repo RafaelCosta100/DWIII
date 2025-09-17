@@ -9,7 +9,7 @@ app.use('/', LoginRoute);
 
 //vamos adicionar o template engine EJS e o endereçamento das views
 app.set('view engine', 'ejs');
-app.set('views', './views/login');
+app.set('views', './view');
 
 app.listen(3000, function(){
     console.log("APP rodando na porta 3000");
