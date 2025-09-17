@@ -2,10 +2,14 @@
 const express = require('express');
 const app = express();
 //importando o modulo de rotas que criamos
-const loginRoute = require('./routes/loginRoute');
+const LoginRoute = require("./routes/loginRoute");
 
 //usado para adicionar o Router ao caminho de gerenciamento de middleware
-app.use('/', loginRoute);
+app.use('/', LoginRoute);
+
+//vamos adicionar o template engine EJS e o endereçamento das views
+app.set('view engine', 'ejs');
+app.set('views', './views/login');
 
 app.listen(3000, function(){
     console.log("APP rodando na porta 3000");
