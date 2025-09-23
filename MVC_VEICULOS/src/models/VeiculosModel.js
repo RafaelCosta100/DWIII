@@ -20,5 +20,10 @@ ExibirTodos(){
 };
 
 Excluir(){
-    const index = this.veiculos.findIndex
+    const index = this.veiculos.findIndex((x) => x.modelo == modelo);
+    this.veiculos.splice(index,1);
+};
+
+Editar(){
+    const veiculos
 }
