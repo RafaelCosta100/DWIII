@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Veículos</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #f4f6f9  ; 
+    }
+  </style>
+
+</head>
+
+ <body class="container mt-5">
+ 
+    <h1 class="mb-4">Lista de Veículos</h1>
+   <ul class="list-group mb-3">
+  <% veiculos.forEach(v => { %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span><strong><%= v.modelo %></strong> - <%= v.marca %></span>
+      <div class="btn-group">
+        <a href="/editar/<%= v.modelo %>" class="btn btn-sm btn-secondary">Editar</a>
+        <a href="/excluir/<%= v.modelo %>" class="btn btn-sm btn-danger">Excluir</a>
+      </div>
+    </li>
+  <% }) %>
+</ul>
+
+
+    <a href="/" class="btn btn-outline-primary">Cadastrar novo veículo</a>
+  </body>
+
+</html>
