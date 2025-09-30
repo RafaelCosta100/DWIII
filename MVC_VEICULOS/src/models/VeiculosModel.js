@@ -1,29 +1,31 @@
+// criar classe veiculo
+module.exports = class VeiculosModel {
+  veiculos = [];
 
-// criar a classe Veículos
-module.exports = class Veiculo{
-    veiculos=[];
-    constructor(modelo, marca)
-    {
-        this.modelo = modelo;
-        this.marca = marca;
-    };
-};
+  constructor(modelo, marca) {
+    this.modelo = modelo;
+    this.marca = marca;
+  }
 
+  Adicionar(modelo, marca) {
+    const veiculo = new VeiculosModel(modelo, marca);
+    this.veiculos.push(veiculo);
+  }
 
-Adicionar(modelo, marca) {
-    let veiculos = new Veiculo(modelo, marca);
-    this.veiculos = push (veiculos);
-};    
-
-ExibirTodos(){
+  ExibirTodos() {
     return this.veiculos;
-};
+  }
 
-Excluir(){
-    const index = this.veiculos.findIndex((x) => x.modelo == modelo);
-    this.veiculos.splice(index,1);
-};
+  Excluir(modelo) {
+    const index = this.veiculos.findIndex(v => v.modelo === modelo);
+    if (index !== -1) this.veiculos.splice(index, 1);
+  }
 
-Editar(){
-    const veiculos
-}
+  Editar(modeloAntigo, novoModelo, novaMarca) {
+    const index = this.veiculos.findIndex(v => v.modelo === modeloAntigo);
+    if (index !== -1) {
+      this.veiculos[index].modelo = novoModelo;
+      this.veiculos[index].marca = novaMarca;
+    }
+  }
+};
