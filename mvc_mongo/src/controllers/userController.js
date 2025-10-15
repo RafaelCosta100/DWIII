@@ -1,7 +1,7 @@
-const user = require('../models/userModel');
+const user = require('../model/userModel');
 exports.getUsers = async function(req, res){
     try {
-        const result = await User.find()
+        const result = await user.find()
         res.status(200).json(result);
     }
     catch (error) {
@@ -22,9 +22,9 @@ exports.create = function (req, res) {
             res.status(500).send({ message: `${error.message} - Falha ao cadastrar o usuário.` });
         });
 
-    exports.details = async function (res,req){
+    exports.details = async function (req,res){
         try{
-            const result = await User.findById(req.param.id)
+            const result = await user.findById(req.param.id)
             res.status(200).json(result);
         
         } catch (error) {

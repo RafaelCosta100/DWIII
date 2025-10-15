@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 
-const userRoute = require('./src/routes/userRoute');
+const userRoute = require('../mvc_mongo/src/routes/userRoute')
+const projectRouter = require('./src/routes/projectRoute');
 app.use(userRoute);
 
 const mongoose = require('mongoose');
@@ -17,6 +18,7 @@ db.on('error', console.error.bind(console,'Erro ao conectar ao MongoDB'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 
 app.listen (3000, () => {
     console.log('Servidor em execução na porta 3000');
