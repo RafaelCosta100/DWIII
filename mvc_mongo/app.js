@@ -1,16 +1,26 @@
+require('dotenv').config();
 const express = require('express');
 
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+//importando o middleware
+const apiKeyAuth = require('./src/middleware/apiKeyAuth')
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger-output.json')
+
+app.use('/docs',swaggerUi.serve,swaggerUi.setup(swaggerFile))
+//
+app.use(apiKeyAuth);
 
 const userRoute = require('../mvc_mongo/src/routes/userRoute')
 const projectRouter = require('./src/routes/projectRoute');
 app.use(userRoute);
 
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/Fatec';
-const mongoDB = url;
+//const url = 'mongodb://localhost:27017/Fatec';
+const mongoDB = process.env.MONGODB_URI;
+console.log(apiKeyAuth)
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
